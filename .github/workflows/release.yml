@@ -2,24 +2,24 @@ name: release
 on:
   release:
     types: [published]
-  push:
-    tags:
-      - "v*.*.*"
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
     - uses: actions/checkout@master
     - name: Archive Release
       uses: thedoctor0/zip-release@0.7.5
       with:
         type: 'zip'
-        filename: 'release.zip'
-        exclusions: '*.git* /.github'
+        filename: 'scripts-win.zip'
+        exclusions: '*.git* /.github version'
 
     
     - name: Upload Release
       uses: ncipollo/release-action@v1.16.0
       with:
-        artifacts: "release.zip"
+        artifacts: "scripts-win.zip"
+        allowUpdates: true
         token: ${{ secrets.GITHUB_TOKEN }}
