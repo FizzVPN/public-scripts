@@ -1,4 +1,4 @@
-# 🚀 Public Scripts v1.0.0
+# 🚀 Public Scripts v1.0.1
 
 ## 📋 О проекте
 
